@@ -143,8 +143,11 @@ public class RoadplusDao {
             Statement stmt = con.createStatement();
             ResultSet rset = null;
             Calendar cal = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:");
             cal.add(cal.DATE, -1);
+            int[] a = {1, 2};
+            StringBuffer sb = new StringBuffer();
+            String b = sb.toString();
             
             String query = "select * from (select * from roadplus where date like '" + sdf.format(cal.getTime()) + "%' order by id desc limit 1470) as a where roadNumber=" + roadNumber + " and fromToNumber=" + fromToNumber + " order by roadNameOrder;";
             
